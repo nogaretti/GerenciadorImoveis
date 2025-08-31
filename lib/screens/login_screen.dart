@@ -9,6 +9,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool _isObscured = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,9 +30,10 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 150),
               SizedBox(
-                width: MediaQuery.of(context).size.width * 0.3,
+                width: MediaQuery.of(context).size.width * 0.5,
                 child: TextFormField(
                   decoration: InputDecoration(
+                    maintainHintSize: true,
                     fillColor: Colors.white,
                     filled: true,
                     hintText: 'Email',
@@ -40,15 +42,20 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 10),
               SizedBox(
-                width: MediaQuery.of(context).size.width * 0.3,
+                width: MediaQuery.of(context).size.width * 0.5,
                 child: TextFormField(
+                  obscureText: _isObscured,
                   decoration: InputDecoration(
                     fillColor: Colors.white,
                     filled: true,
                     hintText: 'Senha',
+                    suffixIcon: IconButton(onPressed: (){setState(() {
+                      _isObscured = !_isObscured;
+                    });}, icon: Icon(_isObscured ? Icons.visibility_off : Icons.visibility)),
                   ),
                 ),
               ),
+
             ],
           ),
         ),

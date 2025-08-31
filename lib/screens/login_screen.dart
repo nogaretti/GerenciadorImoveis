@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gerenciador_imoveis/components/custom_text.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -29,33 +30,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: MediaQuery.of(context).size.width * 0.1,
               ),
               const SizedBox(height: 150),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.5,
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    maintainHintSize: true,
-                    fillColor: Colors.white,
-                    filled: true,
-                    hintText: 'Email',
-                  ),
-                ),
-              ),
+              const CustomTextField(hintText: 'Email'),
               const SizedBox(height: 10),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.5,
-                child: TextFormField(
-                  obscureText: _isObscured,
-                  decoration: InputDecoration(
-                    fillColor: Colors.white,
-                    filled: true,
-                    hintText: 'Senha',
-                    suffixIcon: IconButton(onPressed: (){setState(() {
-                      _isObscured = !_isObscured;
-                    });}, icon: Icon(_isObscured ? Icons.visibility_off : Icons.visibility)),
-                  ),
-                ),
-              ),
-
+              CustomTextField(hintText: 'Senha', obscureText: _isObscured, suffixIcon: IconButton(
+                icon: Icon(_isObscured ? Icons.visibility : Icons.visibility_off),
+                onPressed: () {
+                  setState(() {
+                    _isObscured = !_isObscured;
+                  });
+                },
+              )),
             ],
           ),
         ),

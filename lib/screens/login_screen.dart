@@ -40,6 +40,23 @@ class _LoginScreenState extends State<LoginScreen> {
                   });
                 },
               )),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.deepPurple,
+                  foregroundColor: Colors.white,
+                  padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.1, vertical: 15),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                ),
+                child: const Text('Login'),
+              ),
+              const SizedBox(height: 20),
+              TextButton(
+                style: TextButton.styleFrom(foregroundColor: Colors.white70),
+                onPressed: () {},
+                child: const Text('Esqueceu a senha?'),
+              ),
             ],
           ),
         ),
